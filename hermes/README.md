@@ -25,3 +25,14 @@ sessions, memories, logs, caches, run state.
 | `data-source` | data-source — itonami データソース事業 bot: 公開ライセンス corpus (market-intel SEC / GLEIF LEI 等) を収集・正規化し datom plane / lake へ同期し、kotobase.net の x402 販売 SKU 候補を提案する（1 tick = |
 | `data-source-gleif` | data-source / gleif-lei — itonami データソース事業 corpus bot. 対象 corpus: gleif-lei (com-junkawasaki/org-gleif-projections). 毎 tick、鮮度(HEAD)+datom 行数+ライセンス+x402 SKU rea |
 | `data-source-market-intel` | data-source / market-intel — itonami データソース事業 corpus bot. 対象 corpus: market-intel (network-awai/cloud-murakumo-market-intel). 毎 tick、鮮度(HEAD)+datom 行数+ライセンス+x40 |
+
+## Inference rail
+
+These are Hermes agents. They never name murakumo or mishima — not in `model`,
+`providers`, `fallback_providers` or a cron `model`/`provider` pin
+(itonami-agent AGENTS.md "Two CLIs"; AWAI-3303). Their default is OpenRouter
+(`xiaomi/mimo-v2.6-pro`); other providers (openrouter-free, kotoba) stay as
+they are. Inference on Murakumo / mishima belongs to itonami agent profiles.
+
+The change is to these definitions only. A host profile is updated when it is
+materialized from here, which needs its own operator step.
